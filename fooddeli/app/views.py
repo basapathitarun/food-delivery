@@ -5,10 +5,13 @@ from rest_framework.decorators import api_view
 @api_view(['POST'])
 def calculate_price(request):
 
+    organization_id = 1
+    total_distance = 12
     zone = request.data.get('zone')
     organization_id = request.data.get('organization_id')
     total_distance = float(request.data.get('total_distance'))  # Convert to float
     item_type = request.data.get('item_type')
+
 
     try:
         pricing = Pricing.objects.get(pk=organization_id)
